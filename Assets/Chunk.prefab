@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5147029577118649964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5147029577118649954}
+  - component: {fileID: 3686262426845883135}
+  m_Layer: 0
+  m_Name: Chunk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5147029577118649954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147029577118649964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3686262426845883135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147029577118649964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a365d802e352dd544b8dabb560c01ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0
+  grass: {fileID: 848865392470462536, guid: cb21bc928e3b84f4d9ab0b885da6dd4e, type: 3}
+  grass_B: {fileID: 848865392470462536, guid: a184573e869929d489c2a628a6bbd046, type: 3}
+  dirt: {fileID: 4391054012228300245, guid: 47a3b204cf82e5e459310ded3c3af190, type: 3}
+  dirt_B: {fileID: 4391054012228300245, guid: 84075116529ca0245a1b5711adbca0e6, type: 3}
+  min_StoneH: 2
+  max_StoneH: 20
+  stone: {fileID: 1490462448810692901, guid: e0fc7bb90af0b3c42b13e1b9b527eca6, type: 3}
+  stone_B: {fileID: 1490462448810692901, guid: 0351dbb973e17dc4084a8cf17f8b3322, type: 3}
+  chunkLength: 32
+  smoothness: 15
+  heightMult: 20
+  additionalHeight: 50
+  dirtChances:
+  - 50
+  - 20
+  - 5
+  coalChances:
+  - 5
+  - 10
+  - 4
+  ironChances:
+  - 1
+  - 4
+  - 3
+  goldChances:
+  - 0.02
+  - 0.2
+  - 0.4
+  titanChances:
+  - 0.005
+  - 0.05
+  - 0.1
+  diamondChances:
+  - 0.001
+  - 0.01
+  - 0.08
+  layer1: 4
+  layer2: 10
+  layer3: 500
+  coalOre: {fileID: 1007133615994673722, guid: 78bcbd4983c29cf40bc5eea01e8eed8a, type: 3}
+  ironOre: {fileID: 2808679731893081282, guid: 53551229b53c46e43b480f57ac19190e, type: 3}
+  goldOre: {fileID: 3081731589828670702, guid: 7aea7d0731786ed4381f995a3edd1908, type: 3}
+  titanOre: {fileID: 5181448334287633392, guid: 24435faaef2456e4eb0403bd6e0d081d,
+    type: 3}
+  diamondOre: {fileID: 4683646963766091763, guid: 49451f085ba4a54458807adf1d6ef745,
+    type: 3}
