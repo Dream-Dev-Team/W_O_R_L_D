@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 0
+  countBlocks: 0
   grass: {fileID: 848865392470462536, guid: cb21bc928e3b84f4d9ab0b885da6dd4e, type: 3}
   grass_B: {fileID: 848865392470462536, guid: a184573e869929d489c2a628a6bbd046, type: 3}
   dirt: {fileID: 4391054012228300245, guid: 47a3b204cf82e5e459310ded3c3af190, type: 3}
@@ -52,7 +53,7 @@ MonoBehaviour:
   max_StoneH: 20
   stone: {fileID: 1490462448810692901, guid: e0fc7bb90af0b3c42b13e1b9b527eca6, type: 3}
   stone_B: {fileID: 1490462448810692901, guid: 0351dbb973e17dc4084a8cf17f8b3322, type: 3}
-  chunkLength: 32
+  chunkLength: 8
   smoothness: 15
   heightMult: 20
   additionalHeight: 50
