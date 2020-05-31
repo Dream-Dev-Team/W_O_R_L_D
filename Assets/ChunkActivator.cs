@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChunkActivator : MonoBehaviour
 {
     public SaveWorldData saveWorld;
+    public DynamicChunkLoader dynamicChunkLoader;
 
     public int totalNumBlocks = 0;
     [Tooltip("Activision time bewtween two  chunks")]
@@ -39,11 +40,15 @@ public class ChunkActivator : MonoBehaviour
 
             totalNumBlocks += chunk.transform.GetComponent<ChunkGenerator>().countBlocks;
 
-            activatedFirstChunk = true;
             yield return new WaitForSeconds(actTime);
+            chunk.SetActive(false);
         }
         activatedAllChunks = true;
 
-        saveWorld.GetAllBlockInfos();
+        System.GC.Collect();
+        //Start first activation manuel
+        dynamicChunkLoader.ActivateFirstChunk();
+        activatedFirstChunk = true;
+        //saveWorld.GetAllBlockInfos();
     }
 }
