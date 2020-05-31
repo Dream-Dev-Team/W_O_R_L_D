@@ -52,7 +52,7 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
     { 
         lastCurrChunkIndex = currChunkIndex;
         currChunkIndex = (int) player.position.x / worldGenerator.chunkLength;
-        currChunkText.text = currChunkIndex.ToString();
+        currChunkText.text = "Chunk: " + currChunkIndex.ToString();
 
         if (lastCurrChunkIndex != currChunkIndex)
             RefreshChunkActivations();
@@ -62,41 +62,42 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
     {
         StartCoroutine(SeperateExecutions());
     }
-
     IEnumerator SeperateExecutions()
+    {
+        ActivateChunk();
+        yield return new WaitForSeconds(0.1f);
+        DeactivateChunk();
+    }
+
+    private void ActivateChunk()
     {
         //if index of chunk is greater then -1 and lower then bounds of chunks[], then activate it, if activeIndexes matches chunk indexes
         int startval = currChunkIndex - numChunksActiveRight;
-        int deactivateLeftIndex = currChunkIndex - (numChunksActiveLeft + 1);
-        int deactivateRightIndex = currChunkIndex + (numChunksActiveRight + 1);
-
 
         for (int i = 0; i < activeChunksIds.Length; i++)
         {
             activeChunksIds[i] = startval + i;
 
-
             if (activeChunksIds[i] >= 0 && activeChunksIds[i] < chunkActivator.chunks.Length)
-                world.transform.GetChild(activeChunksIds[i]).gameObject.SetActive(true);
-                //chunkActivator.chunks[activeChunksIds[i]].SetActive(true);
+                world.transform.GetChild(activeChunksIds[i]).gameObject.SetActive(true);    //chunkActivator.chunks[activeChunksIds[i]].SetActive(true);
         }
-        yield return new WaitForSeconds(0.1f);
+    }
+    private void DeactivateChunk()
+    {
+        int deactivateLeftIndex = currChunkIndex - (numChunksActiveLeft + 1);
+        int deactivateRightIndex = currChunkIndex + (numChunksActiveRight + 1);
 
-        if (deactivateLeftIndex < numChunks && deactivateLeftIndex > 0)
-            world.transform.GetChild(deactivateLeftIndex).gameObject.SetActive(false);
+        if (deactivateLeftIndex < numChunks && deactivateLeftIndex >= 0)
+            world.transform.GetChild(deactivateLeftIndex).gameObject.SetActive(false);      //chunkActivator.chunks[deactivateLeftIndex].SetActive(false);
 
-        //chunkActivator.chunks[deactivateLeftIndex].SetActive(false);
-
-        yield return new WaitForSeconds(0.1f);
-
-        if (deactivateRightIndex < numChunks && deactivateRightIndex > 0 && chunkActivator.chunks[deactivateRightIndex].activeSelf == true)
+        if (deactivateRightIndex < numChunks && deactivateRightIndex >= 0)
             world.transform.GetChild(deactivateRightIndex).gameObject.SetActive(false);
 
         Debug.Log("Deactivated Chunks: " + deactivateLeftIndex + ", " + deactivateRightIndex);
     }
 
-    public void ActivateFirstChunk()
+    public void ActivateFirstChunks()
     {
-        world.transform.GetChild(0).gameObject.SetActive(true);
+        ActivateChunk();
     }
 }

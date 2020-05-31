@@ -47,7 +47,7 @@ public class ChunkActivator : MonoBehaviour
 
         System.GC.Collect();
         //Start first activation manuel
-        dynamicChunkLoader.ActivateFirstChunk();
+        dynamicChunkLoader.ActivateFirstChunks();
         activatedFirstChunk = true;
         //saveWorld.GetAllBlockInfos();
     }

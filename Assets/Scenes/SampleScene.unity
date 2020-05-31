@@ -919,6 +919,7 @@ GameObject:
   - component: {fileID: 1408614057}
   - component: {fileID: 1408614059}
   - component: {fileID: 1408614058}
+  - component: {fileID: 1408614060}
   m_Layer: 0
   m_Name: WorldGenerator
   m_TagString: Untagged
@@ -953,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunk: {fileID: 5147029577118649964, guid: e812a1d1ac599134e8891acb2c0a4685, type: 3}
-  numChunks: 100
+  numChunks: 200
   seed: 0
   chunkLength: 0
   timePerChunkGen: 0.01
@@ -978,7 +979,7 @@ MonoBehaviour:
   chunks: []
   index: 0
   activatedFirstChunk: 0
-  activatedAllChunks: 0
+  activatedAllChunks: 1
 --- !u!114 &1408614057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9cc3e156ee37084a85a1a18a09337eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fps: 60
+  maxFps: 0
 --- !u!114 &1408614059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,14 +1019,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 850918016}
   currChunkText: {fileID: 1582492137}
-  checkRate: 1
-  numChunksActiveLeft: 5
-  numChunksActiveRight: 5
+  checkRate: 0.1
+  numChunksActiveLeft: 6
+  numChunksActiveRight: 6
   currChunkIndex: 0
   lastCurrChunkIndex: 0
   activeChunksIds: 
-  deactiveChunksIds: 
   world: {fileID: 1408614054}
+--- !u!114 &1408614060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408614053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c129a0a1364d97345939d901c5f3d334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRect:
+    serializedVersion: 2
+    x: 10
+    y: 10
+    width: 75
+    height: 50
+  updateColor: 1
+  allowDrag: 1
+  frequency: 0.5
+  nbDecimal: 1
 --- !u!1 &1467133866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,8 +1190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -110, y: -30}
+  m_SizeDelta: {x: 220, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582492137
 MonoBehaviour:
@@ -1191,10 +1213,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -1202,7 +1224,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Curr Chunk Index
+  m_Text: 'Chunk: '
 --- !u!222 &1582492138
 CanvasRenderer:
   m_ObjectHideFlags: 0
