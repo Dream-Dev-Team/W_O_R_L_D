@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void Mine()
     {
-        if (Input.GetMouseButtonDown(0) && !WindowOpener.isWindowOpen)
+        if (Input.GetMouseButtonDown(0) && !WindowController.isWindowOpen)
         {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f, groundLayers);
             if (hit.collider != null && hit.transform.GetComponent<Block>() != null)

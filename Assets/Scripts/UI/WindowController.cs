@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WindowOpener : MonoBehaviour
+public class WindowController : MonoBehaviour
 {
     public GameObject inventory;
     public Slider loadingSlider;
@@ -25,5 +25,10 @@ public class WindowOpener : MonoBehaviour
 
         if (loadingSlider.value >= loadingSlider.maxValue)
             loadingPanel.SetActive(false);
+    }
+
+    public void CloseInventoryBtn()
+    {
+        inventory.SetActive(false);
     }
 }
