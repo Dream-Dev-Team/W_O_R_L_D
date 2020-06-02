@@ -22,11 +22,12 @@ namespace Console
             AddCommandToConsole();
         }
 
-        public override void RunCommand(float index)
+        public override void RunCommand(float index, float index2)
         {
             DevConsole console = GameObject.FindGameObjectWithTag("DevConsole").GetComponent<DevConsole>();
             console.consoleText.text = "";
         }
+
 
         public static CommandClear CreateCommand()
         {

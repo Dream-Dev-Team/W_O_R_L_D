@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using System.IO;
 
 namespace Console
 {
@@ -23,9 +23,12 @@ namespace Console
             AddCommandToConsole();
         }
 
-        public override void RunCommand(float index)
+        public override void RunCommand(float index, float index2)
         {
-            EditorUtility.RevealInFinder(Application.persistentDataPath + "\\W_O_R_L_D");
+            if (Directory.Exists(Application.persistentDataPath))
+                Application.OpenURL(Application.persistentDataPath);
+            else
+                UnityEngine.Debug.LogError("Data path does not exist");
         }
 
         public static CommandShowGameDataPath CreateCommand()

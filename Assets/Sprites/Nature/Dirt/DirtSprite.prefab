@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8578904264159451559}
   - component: {fileID: 1639748304678411309}
-  - component: {fileID: 61629454548044190}
   - component: {fileID: 114206266578635434}
+  - component: {fileID: 61987255199412368}
   m_Layer: 8
   m_Name: DirtSprite
   m_TagString: Untagged
@@ -81,7 +81,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &61629454548044190
+--- !u!114 &114206266578635434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391054012228300245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6611cb2e6a9afb046ad05f170a9eae33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockID: 1
+  strength: 0
+  health: 1
+--- !u!61 &61987255199412368
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +105,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4391054012228300245}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 075d50f42322c964b82e90508df5e1dc, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -107,18 +122,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114206266578635434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391054012228300245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6611cb2e6a9afb046ad05f170a9eae33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockID: 1
-  strength: 0
-  health: 1

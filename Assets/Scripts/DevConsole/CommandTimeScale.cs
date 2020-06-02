@@ -21,7 +21,7 @@ namespace Console
             AddCommandToConsole();
         }
 
-        public override void RunCommand(float index)
+        public override void RunCommand(float index, float index2)
         {
             Time.timeScale = index;
         }

@@ -23,6 +23,8 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
     public Transform world;
     int numChunks;
 
+    public bool firstLoad = true; //ugly solution, but ey, it works
+
     private void Awake()
     {
         chunkActivator = GetComponent<ChunkActivator>();
@@ -66,7 +68,11 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
     {
         ActivateChunk();
         yield return new WaitForSeconds(0.1f);
-        DeactivateChunk();
+
+        if (firstLoad == false)     //only deactivate some chunks, when not in first loop -> first loop only has to activate the first few chunks...
+            DeactivateChunk();
+        else
+            firstLoad = false;
     }
 
     private void ActivateChunk()
@@ -78,7 +84,7 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
         {
             activeChunksIds[i] = startval + i;
 
-            if (activeChunksIds[i] >= 0 && activeChunksIds[i] < chunkActivator.chunks.Length)
+            if (activeChunksIds[i] >= 0 && activeChunksIds[i] < world.transform.childCount)
                 world.transform.GetChild(activeChunksIds[i]).gameObject.SetActive(true);    //chunkActivator.chunks[activeChunksIds[i]].SetActive(true);
         }
     }
@@ -88,6 +94,7 @@ public class DynamicChunkLoader : MonoBehaviour             //Still in need of s
         int deactivateRightIndex = currChunkIndex + (numChunksActiveRight + 1);
 
         if (deactivateLeftIndex < numChunks && deactivateLeftIndex >= 0)
+
             world.transform.GetChild(deactivateLeftIndex).gameObject.SetActive(false);      //chunkActivator.chunks[deactivateLeftIndex].SetActive(false);
 
         if (deactivateRightIndex < numChunks && deactivateRightIndex >= 0)

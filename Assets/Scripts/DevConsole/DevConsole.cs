@@ -20,7 +20,7 @@ namespace Console
             Debug.Log(Name + addMessage);
         }
 
-        public abstract void RunCommand(float index);
+        public abstract void RunCommand(float index, float index2);
     }
     public class DevConsole : MonoBehaviour
     {
@@ -99,6 +99,7 @@ namespace Console
             CommandTimeScale.CreateCommand();
             //CommandKill.CreateCommand();
             CommandShowGameDataPath.CreateCommand();
+            CommandTeleportPlayer.CreateCommand();
         }
 
         public static void AddCommandsToConsole(string _name, ConsoleCommand _command)
@@ -194,7 +195,8 @@ namespace Console
         private void ParseInput(string input)
         {
             string[] _input = input.Split(null);
-            float index = 0f;
+            float index = 1f;           //Default index == 1f
+            float index2 = 1f; 
 
             if (_input.Length == 0 || _input == null)
             {
@@ -209,10 +211,11 @@ namespace Console
             else
             {
                 if (_input.Length >= 2)
-                {
                     index = float.Parse(_input[1]);
-                }
-                Commands[_input[0]].RunCommand(index);
+                if (_input.Length >= 3)
+                    index2 = float.Parse(_input[2]);
+
+                Commands[_input[0]].RunCommand(index, index2);
             }
         }
 

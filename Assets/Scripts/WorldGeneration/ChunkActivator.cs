@@ -6,6 +6,7 @@ public class ChunkActivator : MonoBehaviour
 {
     public SaveWorldData saveWorld;
     public DynamicChunkLoader dynamicChunkLoader;
+    public WorldDetailsLoader detailsLoader;
 
     public int totalNumBlocks = 0;
     [Tooltip("Activision time bewtween two  chunks")]
@@ -39,6 +40,8 @@ public class ChunkActivator : MonoBehaviour
             chunk.SetActive(true);
 
             totalNumBlocks += chunk.transform.GetComponent<ChunkGenerator>().countBlocks;
+
+            detailsLoader.LoadDetails(chunk);
 
             yield return new WaitForSeconds(actTime);
             chunk.SetActive(false);

@@ -21,10 +21,14 @@ namespace Console
             AddCommandToConsole();
         }
 
-        public override void RunCommand(float index)
+        public override void RunCommand(float index, float index2s)
         {
-            Time.timeScale = 0f;
+            if (index == 1f)
+                Time.timeScale = 0f;
+            else
+                Time.timeScale = 1f;
         }
+
 
         public static CommandPause CreateCommand()
         {

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Transform tf;
     private Rigidbody2D rb2D;
     private BoxCollider2D coll2D;
+    //private CapsuleCollider2D coll2D;
 
     [Range(1, 10)]
     public float speed = 5f;
@@ -33,11 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         if (worldToPlayer.GenerationStatus() == 1 && rb2D.constraints == RigidbodyConstraints2D.FreezeAll)
         {
-            rb2D.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-            rb2D.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+            rb2D.constraints = RigidbodyConstraints2D.None;
             rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
+        
         Mine();
         isGrounded = GroundCheck();
     }
@@ -48,7 +49,11 @@ public class PlayerController : MonoBehaviour
         else
             jojo.flipX = true;
 
-        tf.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
+        
+
+        tf.Translate(Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, 0f, 0f);
+
+        //rb2D.AddForce(new Vector2(Input.GetAxis("Horizontal") * speed * 100 * Time.deltaTime, 0f)); better methode for acceleration effect;
 
         if (Input.GetButton("Jump"))
             if (isGrounded)
