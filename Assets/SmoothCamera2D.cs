@@ -22,4 +22,3 @@ public class SmoothCamera2D : MonoBehaviour
     }
 }
 
-if you read this ur gay
