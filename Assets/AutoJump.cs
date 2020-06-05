@@ -49,4 +49,11 @@ public class AutoJump : MonoBehaviour
             lastPosX = this.transform.position.x;
         }
     }
+
+
+    private void OnDisable()
+    {
+        colliders[0].enabled = false;
+        colliders[1].enabled = false;
+    }
 }
